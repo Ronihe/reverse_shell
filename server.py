@@ -26,6 +26,15 @@ def bind_socket():
         print("binding port:" + str(port))
         s.bind((host, port))
         s.listen(5)
+
     except socket.error as error_msg:
         print("socket binding error:" + str(error_msg) + "\n" + "retrying")
         bind_socket()
+
+
+# establish connection with a client (socket must be listenning)
+def socket_listen():
+    conn, address = s.accept()
+    print("connection has been established:", conn, "addres is ", address[0], "port:", address[1])
+    send_command(conn)
+    conn.close()
