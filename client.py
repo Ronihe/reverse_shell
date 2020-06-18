@@ -8,7 +8,7 @@ import os
 import subprocess
 
 s = socket.socket()
-host = "192.168.2.13"
+host = "167.172.213.23"  # server ip in digital ocean
 port = 8888  # same as the port in server.py
 
 s.connect((host, port))
