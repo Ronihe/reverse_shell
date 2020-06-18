@@ -53,9 +53,12 @@ def send_command(conn):
             conn.send(str.encode(cmd))
             client_resp = str(conn.recv(1024), "utf-8")
             print(client_resp, end="")
-            
+
 
 def main():
     create_socket()
     bind_socket()
     socket_listen()
+
+
+main()
