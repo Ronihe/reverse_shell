@@ -1,6 +1,12 @@
 import socket
 import sys
+import threading
+import time
+from queue import Queue
 
+NUMBER_OF_THREAD = 2
+JOB_NUMBER = []
+q = Queue()
 
 # create a socket to connect two computers
 def create_socket():
@@ -63,4 +69,9 @@ def main():
 
 main()
 
-# refactor to a server can connect multiple victims - please go to server_multi.py
+# refactor to a server can connect multiple victims
+# 1. sending commands to an already connected client     - thread 1
+# 2. listen and accept connections from other clients     - thread 2
+
+# Threading:
+# multi-tasking system.
