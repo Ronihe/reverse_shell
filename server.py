@@ -1,5 +1,6 @@
 import socket
 import sys
+import threading
 
 
 # create a socket to connect two computers
@@ -62,3 +63,10 @@ def main():
 
 
 main()
+
+# refactor to a server can connect multiple victims
+# 1. sending commands to an already connected client     - thread 1
+# 2. listen and accept connections from other clients     - thread 2
+
+# Threading:
+# multi-tasking system.
